@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from 'react';
 
+import LoginComponent from '@components/LoginComponent';
+
 import CurrentMoodComponent from './CurrentMoodComponent';
 import MoodSelectComponent from './MoodSelectComponent';
 import EditCustomMoodComponent from './EditCustomMoodComponent';
@@ -11,6 +13,8 @@ const MoodComponent = () => {
 
 	return (
 		<div className="mood-component">
+			<LoginComponent />
+
 			<div>Page mood:</div>
 			<CurrentMoodComponent toggleSelect={toggleSelect} />
 			<EditCustomMoodComponent />

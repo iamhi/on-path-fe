@@ -13,11 +13,12 @@ const getComponent = ({
 	key,
 	type,
 	content,
+	children,
 	...componentProps
 }) => {
 	switch (type) {
 	case TEXT_TYPE:
-		return <ContentTextComponent key={key} {...componentProps}>{content}</ContentTextComponent>;
+		return <ContentTextComponent key={key} {...componentProps}>{content || children }</ContentTextComponent>;
 
 	case TITLE_TYPE:
 		return <ContentTitleComponent key={key} {...componentProps}>{content}</ContentTitleComponent>;

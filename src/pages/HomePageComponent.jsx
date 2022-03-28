@@ -7,16 +7,16 @@ import NavigationComponent from '@components/NavigationComponent';
 import MoodComponent from '@components/MoodComponent';
 import SpotifyComponent from '@components/SpotifyComponent';
 import SocialMediaComponent from '@components/SocialMediaComponent';
-import AboutRouteComponent from '@page-components/AboutRouteComponent';
 import BlogRouteComponent from '@page-components/BlogRouteComponent';
 import ZoneRouteComponent from '@page-components/ZoneRouteComponent';
+import ReferenceRouteComponent from '@page-components/ReferenceRouteComponent';
 import FooterComponent from '@components/FooterComponent';
 import SupportingApplicationComponent from '@components/SupportingApplicationComponent';
 import UserControlComponent from '@components/UserControlComponent';
 import { selectIsAdmin } from '@redux/slices/userDataSlice';
 
 import {
-	ABOUT_ROUTE,
+	BUDGET_REFERENCE_ROUTE,
 	ZONE_ROUTE,
 	BLOG_ROUTE,
 } from './constants';
@@ -37,7 +37,7 @@ const HomePageComponent = () => {
 					<NavigationComponent />
 
 					<Routes>
-						<Route path={ABOUT_ROUTE} element={<AboutRouteComponent />} />
+						<Route path={BUDGET_REFERENCE_ROUTE} element={<ReferenceRouteComponent />} />
 
 						<Route path={BLOG_ROUTE} element={<BlogRouteComponent />} />
 
