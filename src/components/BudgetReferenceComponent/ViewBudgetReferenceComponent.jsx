@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { registry as ComponentRegistryComponent } from '@components/ContentRegistryComponent';
+import { getBudgetInput } from '@services/backend/budgetInputRequests';
+
+import ViewBudgetReferenceItemComponent from './ViewBudgetReferenceItemComponent';
 
 const ViewBudgetReferenceComponent = () => {
+	const [dispayData, setDisplayData] = useState({});
 	console.warn('Viewing ref');
 	// fetch budget
+	useEffect(() => getBudgetInput().then((data) => setDisplayData(data)).catch((err) => console.warn({ err })), []);
+
+	const itemComponents = Object.entries(dispayData).map(([key, value]) => (
+		<ViewBudgetReferenceItemComponent key={key} label={key} value={value} />
+	));
 
 	return (
 		<div className="view-budget-reference-component">
-			<ComponentRegistryComponent key="budget-test-1" type="text">
-				Budget test:
-
-				<b> 12</b>
-			</ComponentRegistryComponent>
-
-			<ComponentRegistryComponent key="budget-test-1" type="text">
-				Budget test:
-
-				<b> 35</b>
-			</ComponentRegistryComponent>
-			Sleepy view
+			{itemComponents}
 		</div>
 	);
 };

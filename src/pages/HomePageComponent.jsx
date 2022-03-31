@@ -12,7 +12,6 @@ import ZoneRouteComponent from '@page-components/ZoneRouteComponent';
 import ReferenceRouteComponent from '@page-components/ReferenceRouteComponent';
 import FooterComponent from '@components/FooterComponent';
 import SupportingApplicationComponent from '@components/SupportingApplicationComponent';
-import UserControlComponent from '@components/UserControlComponent';
 import { selectIsAdmin } from '@redux/slices/userDataSlice';
 
 import {
@@ -58,8 +57,6 @@ const HomePageComponent = () => {
 				<div className="home-page__footer">
 					<FooterComponent />
 				</div>
-
-				<UserControlComponent />
 			</div>
 		</div>
 	);

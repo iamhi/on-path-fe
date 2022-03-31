@@ -49,7 +49,7 @@ FormInputComponent.propTypes = {
 	placeholder: PropTypes.string,
 	type: PropTypes.string,
 	required: PropTypes.bool,
-	value: PropTypes.string,
+	value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	label: PropTypes.string,
 	onChange: PropTypes.func,
 	invalidMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

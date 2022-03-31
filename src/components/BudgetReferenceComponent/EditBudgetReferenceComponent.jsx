@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import FormComponent from '@common-components/FormComponent';
 import ManagedFormInputComponent from '@common-components/ManagedFormInputComponent';
 import FormSubmitComponent from '@common-components/FormSubmitComponent';
+import { getBudgetInput, updateBudgetInput } from '@services/backend/budgetInputRequests';
 
 const INCOME_INPUT = 'income';
 const STOCKS_INPUT = 'stocks';
 const CRYPTO_INPUT = 'crypto';
 const DEBT_INPUT = 'debt';
-const SPANDING_INPUT = 'spanding';
+const SPENDING_INPUT = 'spending';
 const SAVINGS_INPUT = 'savings';
 
 const EditBudgetReferenceComponent = () => {
-	// load budget
+	const [budgetInput, setBudgetInput] = useState({});
+
+	useEffect(() => getBudgetInput().then((data) => setBudgetInput(data)).catch((err) => console.error({ err })), []);
 
 	const formSubmit = (event) => {
 		event.preventDefault();
@@ -20,44 +23,52 @@ const EditBudgetReferenceComponent = () => {
 		const formData = new FormData(event.target);
 		const requestData = Object.fromEntries(formData);
 
-		console.warn({ requestData });
+		updateBudgetInput(requestData);
 	};
+
+	if (!budgetInput.uuid) {
+		return (
+			<div>
+				Loading
+			</div>
+		);
+	}
 
 	return (
 		<FormComponent onSubmit={formSubmit}>
 			<ManagedFormInputComponent
 				type="number"
-				value={0}
+				value={budgetInput[INCOME_INPUT]}
 				label="Monthly income"
 				name={INCOME_INPUT} />
 
 			<ManagedFormInputComponent
 				type="number"
-				value={0}
+				value={budgetInput[STOCKS_INPUT]}
 				label="Stocks"
 				name={STOCKS_INPUT} />
 
 			<ManagedFormInputComponent
 				type="number"
-				value={0}
+				value={budgetInput[CRYPTO_INPUT]}
 				label="Crypto"
 				name={CRYPTO_INPUT} />
 
 			<ManagedFormInputComponent
 				type="number"
-				value={0}
+				value={budgetInput[DEBT_INPUT]}
 				label="Debt"
 				name={DEBT_INPUT} />
 
 			<ManagedFormInputComponent
 				type="number"
-				value={0}
-				label="Spanding"
-				name={SPANDING_INPUT} />
+				value={budgetInput[SPENDING_INPUT]}
+				label="Spending"
+				name={SPENDING_INPUT} />
 
 			<ManagedFormInputComponent
 				type="number"
-				value={0}
+				value={budgetInput[SAVINGS_INPUT]}
 				label="Savings"
 				name={SAVINGS_INPUT} />
 

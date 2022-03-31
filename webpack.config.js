@@ -93,8 +93,8 @@ if (currentTask == 'dev') {
       directory: path.join(__dirname, 'app'),
     },
 		proxy: {
-			'/api': {
-		    target: 'http://localhost:8080',
+			'/on-path-api': {
+		    target: 'http://localhost:8088',
 		    secure: false,
 		    changeOrigin: true,
 				ws: true,

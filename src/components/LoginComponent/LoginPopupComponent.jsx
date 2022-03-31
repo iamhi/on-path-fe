@@ -6,7 +6,7 @@ import ManagedFormInputComponent from '@common-components/ManagedFormInputCompon
 import FormSubmitComponent from '@common-components/FormSubmitComponent';
 import PopupDisplayComponent from '@common-components/PopupDisplayComponent';
 
-const USERCODE_INPUT = 'usercode';
+const USERCODE_INPUT = 'userCode';
 
 const LoginPopupComponent = ({ closePopup, saveData }) => {
 	const formSubmit = (event) => {
