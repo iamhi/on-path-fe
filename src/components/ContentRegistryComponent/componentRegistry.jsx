@@ -18,16 +18,16 @@ const getComponent = ({
 }) => {
 	switch (type) {
 	case TEXT_TYPE:
-		return <ContentTextComponent key={key} {...componentProps}>{content || children }</ContentTextComponent>;
+		return <ContentTextComponent key={key} {...componentProps}>{content || children}</ContentTextComponent>;
 
 	case TITLE_TYPE:
-		return <ContentTitleComponent key={key} {...componentProps}>{content}</ContentTitleComponent>;
+		return <ContentTitleComponent key={key} {...componentProps}>{content || children}</ContentTitleComponent>;
 
 	case SUBTITLE_TYPE:
-		return <ContentSubtitleComponent key={key} {...componentProps}>{content}</ContentSubtitleComponent>;
+		return <ContentSubtitleComponent key={key} {...componentProps}>{content || children}</ContentSubtitleComponent>;
 
 	default:
-		return <ContentTextComponent key={key} {...componentProps}>{content}</ContentTextComponent>;
+		return <ContentTextComponent key={key} {...componentProps}>{content || children}</ContentTextComponent>;
 	}
 };
 
